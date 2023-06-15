@@ -1,0 +1,12 @@
+{
+    "filterLayerOnLayerVisibilityChange": [],
+    "customScript": [],
+    "customCss": [],
+    "trackUser": {
+        "enabled": false,
+        "jobUrl": null,
+        "token": null
+    },
+    "customPortalWmts": []
+
+}
