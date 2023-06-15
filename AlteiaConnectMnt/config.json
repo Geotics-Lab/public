@@ -1,0 +1,13 @@
+{
+    "moveImageryToBackgroung": true,
+    "alteiaConnectService": "https://geo.eramet-gco.com/server/rest/services/Social/Connected_Concession_Alteia_Connect/FeatureServer/0d",
+    "backgroundIndex": 1 ,
+    "mapping" : {
+        "project" : "project",
+        "mission" : "mission",
+        "url" : "url",
+        "z_min" : "z_min",
+        "z_max" : "z_max",
+        "date" : "creation_date"
+    }
+}

@@ -1,0 +1,580 @@
+:root {
+    --dark-B: rgba(0, 0, 0, 0.2);
+    --light-C: rgba(255, 255, 255, 0.5);
+    --scrollbar-color: rgba(0, 0, 0, 0.1);
+    --switch-round: white;
+    --active-color: #ffb300;
+    --project-background-color: rgba(0, 0, 0, 0.1);
+    --project-font-color: #1a237e;
+    --project-badge-background: #0d47a1;
+    --project-badge-font: rgba(255, 255, 255, 0.9);
+    --mission-background-color: #0d47a163;
+    --mission-font-color: #002171;
+    --mission-badge-background: #002171;
+    --mission-badge-font: rgba(255, 255, 255, 1);
+    --active-mission-background-color: #ffb300;
+    --active-mission-font-color: #bf360c;
+    --active-mission-badge-background: rgba(255, 255, 255, 0.8);
+    --active-mission-badge-font: rgba(0, 0, 0, 0.8);
+    --timeline-pin-border: #002171;
+    --timeline-pin-center: #5472d3;
+    --timeline-color: rgba(0, 0, 0, 0.2);
+    --active-timeline-pin-border: #f57c00;
+    --active-timeline-pin-center: #ffcc80;
+    --extent-switch-color: #002171;
+}
+
+.alteia-connect {
+    height: 100%;
+}
+
+.alteia-connect * {
+    scrollbar-color: var(--scrollbar-color) var(--light-C) !important;
+    scrollbar-width: thin !important;
+}
+
+.alteia-connect ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    margin-left: 2px;
+    background: var(--scrollbar-color);
+}
+
+.alteia-connect ::-webkit-scrollbar-thumb {
+    background: rgba(0255, 255, 255, 0.5);
+}
+
+.alteia-connect .extent-controler {
+    color: var(--extent-switch-color)
+}
+
+.alteia-connect .tms-mission {
+    padding: 5px 5px 5px 9px;
+    border-radius: 0px 15px 15px 0px;
+    margin: 5px;
+    text-align: left;
+    background: var(--mission-background-color);
+
+    font-weight: bold;
+    margin-left: 38px;
+    margin-right: 5px;
+    padding-left: 3px;
+    display: flex;
+}
+
+.alteia-connect .tms-mission:hover {
+    cursor: pointer;
+
+    background-color: var(--active-mission-background-color);
+
+
+}
+
+.alteia-connect .tms-mission.active {
+    cursor: pointer;
+    background-color: var(--active-mission-background-color);
+    background-image: linear
+}
+
+.alteia-connect .ellipsys {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    color: var(--mission-font-color);
+}
+
+.alteia-connect .ellipsys:hover {
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.alteia-connect .tms-mission.active .ellipsys {
+    color: var(--active-mission-font-color);
+
+}
+
+.alteia-connect .tms-mission:hover .ellipsys {
+    color: var(--active-mission-font-color);
+}
+
+.alteia-connect .tms-mission::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--timeline-pin-center);
+    border: 4px solid;
+    border-radius: 50%;
+    z-index: 1;
+    left: 8px;
+    border-color: var(--timeline-pin-border);
+}
+
+.alteia-connect .tms-mission:hover::before {
+    border: 4px solid var(--active-timeline-pin-border);
+    background-color: var(--active-timeline-pin-center);
+
+}
+
+.alteia-connect .tms-mission.active::before {
+    border: 4px solid var(--active-timeline-pin-border);
+    background-color: var(--active-timeline-pin-center);
+}
+
+
+.alteia-connect .tms-mission:hover::after {
+
+    border-color: transparent var(--active-mission-background-color) transparent transparent;
+
+}
+
+.alteia-connect .tms-mission.active::after {
+
+    border-color: transparent var(--active-mission-background-color) transparent transparent;
+
+}
+
+.alteia-connect .collapse-controler {
+    margin: 7px;
+    margin-left: 7px;
+    text-align: left;
+    margin-left: 2px;
+}
+
+.alteia-connect .collapse-controler:hover {
+    cursor: pointer;
+}
+
+.alteia-connect .collapse-controler::before {
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    height: 0.45em;
+    float: right;
+    transform: rotate(-45deg);
+    width: 0.45em;
+    transition: all 250ms;
+    position: absolute;
+    right: 10px;
+    top: 16px;
+}
+
+.alteia-connect .collapse-controler:hover::before {
+    transform: rotate(135deg);
+
+    transition: all 250ms;
+}
+
+.alteia-connect .collapse-controler.active::before {
+    transform: rotate(135deg);
+
+    transition: all 250ms;
+}
+
+.alteia-connect .collapse-controler.active:hover::before {
+    transform: rotate(-45deg);
+
+    transition: all 250ms;
+}
+
+.alteia-connect .collapse-content {
+    max-height: 0px;
+    overflow: hidden;
+    border-color: var(--dark-B);
+    transition: all 500ms;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.alteia-connect .collapse-content.expended {
+    max-height: max-content !important;
+    transition: all 500ms;
+    border-top: solid 1px var(--light-C);
+    padding-top: 15px;
+    margin-top: 7px;
+}
+
+.alteia-connect .collapse-content.expended::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--timeline-color);
+    top: 110px;
+    bottom: 30px;
+    left: 15px;
+    z-index: 0;
+}
+
+
+
+
+
+
+.alteia-connect .expand-container {
+    position: relative;
+    overflow: hidden;
+    padding: 5px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    color: var(--project-font-color);
+    background-color: var(--project-background-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23e6e5e8' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.alteia-connect .tms-mission::after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    z-index: 1;
+    left: 29px;
+    border: medium solid var(--mission-background-color);
+    border-top-width: 14px;
+    border-right-width: 14px;
+    border-bottom-width: 14px;
+    border-left-width: 0px;
+    margin-top: -5px;
+    border-color: transparent var(--mission-background-color)transparent transparent;
+}
+
+
+.alteia-connect .container {
+    border-top: none !important;
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+    display: block;
+    overflow: auto;
+}
+
+
+
+.alteia-connect [data-dojo-attach-point="extent-list"] {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.alteia-connect .date-badge {
+    border-radius: 50px;
+    background-color: var(--mission-badge-background);
+    color: var(--mission-badge-font);
+    font-weight: bold;
+    font-size: 11px;
+    width: 200px;
+    text-align: center;
+    padding: 0px 7px;
+    height: min-content;
+}
+
+.alteia-connect .tms-mission.active .date-badge {
+    background-color: var(--active-mission-badge-background);
+    color: var(--active-mission-badge-font);
+}
+
+.alteia-connect .tms-mission:hover .date-badge {
+    background-color: var(--active-mission-badge-background);
+    color: var(--active-mission-badge-font);
+}
+
+.alteia-connect .project-date-badge {
+    display: inline-block;
+    width: auto;
+    position: absolute;
+    right: 30px;
+    border-radius: 50px;
+    background-color: var(--project-badge-background);
+    color: var(--project-badge-font);
+    font-weight: bold;
+    font-size: 11px;
+    text-align: center;
+    padding: 0px 7px;
+    height: min-content;
+}
+
+/* The switch - the box around the slider */
+
+.alteia-connect .switch-container {
+    display: flex;
+    border: solid 1px;
+    border-radius: 50px;
+    padding: 5px 15px;
+    height: 27px;
+    margin-bottom: 10px;
+}
+
+
+.alteia-connect .switch {
+    position: absolute;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    right: -8px;
+}
+
+/* Hide default HTML checkbox */
+.alteia-connect .switch input {
+    opacity: 0;
+    width: 40px;
+    height: 14px;
+    z-index: 99999;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* The slider */
+.alteia-connect .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    width: 40px;
+    height: 14px;
+}
+
+.alteia-connect .slider:before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--switch-round);
+    -webkit-transition: .4s;
+    transition: .4s;
+
+}
+
+.alteia-connect input:checked+.slider {
+    background-color: var(--active-color);
+}
+
+.alteia-connect input:focus+.slider {
+    box-shadow: 0 0 1px var(--active-color);
+}
+
+.alteia-connect input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.alteia-connect .slider.round {
+    border-radius: 34px;
+
+}
+
+.alteia-connect .slider.round:before {
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+}
+
+.alteia-connect .colorimetry-ajuster {
+    display: none;
+    cursor: pointer;
+    border: solid 1px;
+    border-radius: 5px;
+    background: #e5e5e5;
+    padding: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.alteia-connect .colorimetry-ajuster:hover {
+    background: #002171;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.alteia-connect .colorimetry-ajuster.active {
+    display: flex;
+    margin-bottom: 15px;
+    z-index: 1;
+}
+
+.alteia-connect .colorimetry-ajuster.active .color-label {
+    margin-right: auto;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: x-small;
+}
+
+.alteia-connect .colorimetry-ajuster.active .color-label-min {
+    background: #5e4fa2;
+    color: white;
+    font-weight: bold;
+    padding: 0px 5px;
+    border-radius: 3px 0px 0px 3px;
+    border: solid 1px #002171;
+    border-right: none;
+    margin-left: 5px;
+}
+
+.alteia-connect .colorimetry-ajuster.active .color-value-min {
+    min-width: 35px;
+    border: solid 1px;
+    text-align: right;
+    padding-right: 3px;
+    border-radius: 0px 3px 3px 0px;
+    font-weight: bold;
+    -moz-appearance: textfield;
+    margin: 0;
+    width: 0px;
+    background: rgba(255, 255, 255, 0.3);
+    font-size: x-small;
+
+}
+
+.alteia-connect .colorimetry-ajuster:hover .color-value-min {
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+.alteia-connect .colorimetry-ajuster:hover .color-label-min {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #0d47a1;
+    border-color: rgba(255, 255, 255, 0.8);
+
+}
+
+.alteia-connect .colorimetry-ajuster:hover .color-value-max {
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+.alteia-connect .colorimetry-ajuster:hover .color-label-max {
+    color: rgba(255, 255, 255, 0.8) !important;
+    background-color: #0d47a1 !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+
+}
+
+.alteia-connect .colorimetry-ajuster.active .color-label-max {
+    background: #9e0142;
+    color: white;
+    font-weight: bold;
+    padding: 0px 5px;
+    border-radius: 3px 0px 0px 3px;
+    border: solid 1px #002171;
+    border-right: none;
+    margin-left: 5px;
+}
+
+.alteia-connect .colorimetry-ajuster.active .color-value-max {
+    min-width: 35px;
+    border: solid 1px;
+    text-align: right;
+    padding-right: 3px;
+    border-radius: 0px 3px 3px 0px;
+    font-weight: bold;
+    -moz-appearance: textfield;
+    margin: 0;
+    width: 0px;
+    background: rgba(255, 255, 255, 0.3);
+    font-size: x-small;
+}
+
+
+.context-menu {
+    position: fixed;
+    z-index: 10000;
+    background: #e5e5e5;
+    border-radius: 5px;
+    transform: scale(0);
+    transform-origin: top left;
+    border: solid 1px #002171;
+    transition: transform 200ms ease-in-out;
+}
+
+.context-menu.visible {
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+}
+
+.context-menu .item {
+    padding: 8px 10px;
+    color: #002171;
+    cursor: pointer;
+    border-radius: 0px;
+    border-bottom: solid 1px #002171;
+}
+
+.context-menu .item:last-child {
+
+    border-bottom: none;
+}
+
+.context-menu .item:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.context-menu .item {
+    position: relative;
+    padding-left: 30px;
+}
+.zoom-on-ico::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top : 5px;
+    display: block;
+    background: url("./zoom-to.svg") no-repeat;
+}
+
+
+.custom-colorimetry::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top : 5px;
+    display: block;
+    background: url("./custom-colorimetry.svg") no-repeat;
+}
+
+.reset-colorimetry::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top : 5px;
+    display: block;
+    background: url("./reset-colorimetry.svg") no-repeat;
+}
+.copy-alteia-id-ico::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top : 5px;
+    display: block;
+    background: url("./copy-alteia-id.svg") no-repeat;
+}
+.copy-tms-url-ico::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top : 5px;
+    display: block;
+    background: url("./copy-tms-url.svg") no-repeat;
+}
