@@ -47,6 +47,8 @@ define([
         this.highlightGraphicsLayer = this.map.addLayer(new GraphicsLayer())
         this.map.reorderLayer(this.highlightGraphicsLayer, 100000)
 
+        this.currentAttributes = null
+
 
         this.config.url.forEach(url => {
           this.featureLayers.push(this.getLayerByUrl(url))
@@ -71,11 +73,12 @@ define([
           featureLayer.on("mouse-over", (evt) => {
 
             console.log(evt)
+            this.currentAttributes = evt.graphic.attributes
             this.highlightGraphicsLayer.clear();
             var highlightGraphic = new Graphic({
               geometry: evt.graphic.geometry,
               spatialReference: this.map.spatialReference,
-              symbol: this._getSymbol(featureLayer.geometryType, [0, 255, 255, 50], [0, 255, 255, 255], 2)
+              symbol: this._getSymbol(featureLayer.geometryType, [18, 102, 174, 50], [18, 102, 174, 255], 2)
             })
   
             this.highlightGraphicsLayer.add(highlightGraphic);
@@ -138,7 +141,9 @@ define([
         if (feature = self._clickEventIsTargetFeature(evt)) {
 
           var [lng, lat] = self.api._pointToLngLat(feature.geometry)
+          console.log(self.currentAttributes)
 
+          self.imajnetLabel.innerHTML = `View ${self.currentAttributes[self.config.labelField]} in Imajnet`
           self.imajnetButton.setAttribute("href", self._getImajnetReverseGeocoding(lng, lat))
 
           self.showImajnetButton()
@@ -155,10 +160,19 @@ define([
         this.imajnetButton = this._createNode({
           tag: "a",
           class: "imajnet-button",
-          innerHTML: "<span class='imajnet-logo'></span><span>View in Imajnet</span>",
           style: this.getCssPosition(this.config['button-position']),
           target: "_blank",
           parent: this.map.container
+        })
+        this._createNode({
+          tag: "span",
+          class: "imajnet-logo",
+          parent: this.imajnetButton
+        })
+        this.imajnetLabel = this._createNode({
+          tag: "span",
+          innerHTML: "View in Imajnet",
+          parent: this.imajnetButton
         })
 
         this.imajnetButton.onclick = (e) => {

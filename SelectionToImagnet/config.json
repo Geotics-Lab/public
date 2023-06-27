@@ -2,6 +2,7 @@
     "url" : [
         ""
     ],
+    "labelField" : "pkorigine",
     "button-position": {
         "left" : "5px",
         "bottom" : "20px"
