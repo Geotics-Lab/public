@@ -139,7 +139,7 @@ define([
 
           var [lng, lat] = self.api._pointToLngLat(feature.geometry)
 
-          self.imajnetButton.setAttribute("url", self._getImajnetReverseGeocoding(lng, lat))
+          self.imajnetButton.setAttribute("href", self._getImajnetReverseGeocoding(lng, lat))
 
           self.showImajnetButton()
 
@@ -153,7 +153,7 @@ define([
       addImajnetButton() {
 
         this.imajnetButton = this._createNode({
-          tag: "div",
+          tag: "a",
           class: "imajnet-button",
           innerHTML: "<span class='imajnet-logo'></span><span>View in Imajnet</span>",
           style: this.getCssPosition(this.config['button-position']),
@@ -166,7 +166,7 @@ define([
 
           //this.showModalIframe()
           //this.updateIframeUrl(e.target.getAttribute('url'))
-          this.openUrlInNewTab(e.target.getAttribute('url'))
+          //this.openUrlInNewTab(e.target.getAttribute('url'))
 
 
         }
