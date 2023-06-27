@@ -45,6 +45,7 @@ define([
         this.featureLayers = []
         this.eventsManager = document.createElement('div')
         this.highlightGraphicsLayer = this.map.addLayer(new GraphicsLayer())
+        this.map.reorderLayer(this.highlightGraphicsLayer, 100000)
 
 
         this.config.url.forEach(url => {
@@ -68,6 +69,8 @@ define([
 
         this.featureLayers.forEach(featureLayer => {
           featureLayer.on("mouse-over", (evt) => {
+
+            console.log(evt)
             this.highlightGraphicsLayer.clear();
             var highlightGraphic = new Graphic({
               geometry: evt.graphic.geometry,
@@ -291,7 +294,7 @@ define([
           case 'esriGeometryPoint':
             output = {
               "color": fillColor,
-              "size": 7,
+              "size": 32,
               "angle": -30,
               "xoffset": 0,
               "yoffset": 0,
@@ -308,7 +311,7 @@ define([
           case 'esriGeometryMultiPoint':
             output = {
               "color": fillColor,
-              "size": 12,
+              "size": 32,
               "angle": -30,
               "xoffset": 0,
               "yoffset": 0,
