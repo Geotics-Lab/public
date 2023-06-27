@@ -157,7 +157,7 @@ define([
           class: "imajnet-button",
           innerHTML: "<span class='imajnet-logo'></span><span>View in Imajnet</span>",
           style: this.getCssPosition(this.config['button-position']),
-          url: "null",
+          target: "_blank",
           parent: this.map.container
         })
 
