@@ -1,0 +1,42 @@
+/*css*/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+.code-container > * {
+    scrollbar-width: thin!important;
+    /*scrollbar-color: var(--scroll-bar-color) var(--scroll-bar-bg-color);*/
+}
+
+/* Works on Chrome, Edge, and Safari */
+.code-container > *::-webkit-scrollbar {
+    width: 12px!important;
+}
+
+.code-container > *::-webkit-scrollbar-track {
+    /*background: var(--scroll-bar-bg-color); */
+}
+
+.code-container > *::-webkit-scrollbar-thumb {
+    /*background-color: var(--scroll-bar-color); */
+    border-radius: 20px!important;
+}
+
+.code-container {
+    position: absolute;
+    top: 0px;
+    bottom: 50px;
+    border-radius: 7px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.CodeMirror {
+    height: 100% !important;
+}
+
+[data-dojo-attach-point="save-params"] {
+    position: absolute;
+    bottom: -0px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}

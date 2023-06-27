@@ -1,0 +1,14 @@
+{
+  "name": "SelectionToImagnet",
+  "platform": "HTML",
+  "version": "2.19",
+  "wabVersion": "2.19",
+  "author": "",
+  "description": "",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+    "hasConfig": true,
+    "inPanel": false
+  }
+}

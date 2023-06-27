@@ -1,0 +1,135 @@
+/*css*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.imajnet-button {
+  font-family: poppins;
+  position: absolute;
+  z-index: 10000000;
+  display: none;
+  align-items: center;
+  text-align: center;
+  font-size: x-small;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: solid 5px;
+  border-top-color: currentcolor;
+  border-right-color: currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color: currentcolor;
+  border-radius: 50px;
+  background-color: #1266ae;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  padding: 5px 15px;
+}
+
+.imajnet-logo {
+  background-image: url('./imajnet.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.imajnet-button:hover {
+  border-color: dodgerblue;
+  cursor: pointer;
+}
+
+.imajnet-button.visible {
+  display: flex;
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  margin-top: 4vh;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content iframe {
+  height: 80vh;
+  width: 100%;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+#context-menu {
+  position: fixed;
+  z-index: 10000;
+  width: 150px;
+  background: #1b1a1a;
+  border-radius: 5px;
+  transform: scale(0);
+  transform-origin: top left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#context-menu.visible {
+  transform: scale(1);
+  transition: transform 200ms ease-in-out;
+}
+
+#context-menu .item {
+  padding: 8px 10px;
+  font-size: 15px;
+  color: #eee;
+  cursor: pointer;
+  border-radius: inherit;
+}
+
+#context-menu .item:hover {
+  background: #343434;
+}
