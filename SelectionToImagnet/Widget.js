@@ -361,7 +361,7 @@ define([
       },
 
       _getImajnetReverseGeocoding(lng = 0, lat = 0) {
-        return `https://gecko.imajnet.net/#map=OSM;zoom=10;loc=${lng},${lat}`
+        return `https://gecko.imajnet.net/#map=OSM;zoom=10;loc=${lat},${lng}`
       },
 
       _createNode(attributes = {}) {
