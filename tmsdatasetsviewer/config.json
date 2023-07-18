@@ -1,0 +1,13 @@
+{
+    "url": "",
+    "moveImageryToBackgroung": true,
+    "backgroundIndex": 1,
+    "mapping": {
+        "project": "project",
+        "mission": "mission",
+        "url": "url",
+        "z_min": "z_min",
+        "z_max": "z_max",
+        "date": "creation_date"
+    }
+}
